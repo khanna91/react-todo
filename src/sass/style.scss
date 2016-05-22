@@ -1,0 +1,90 @@
+/* Font Awesome */
+@import "./font-awesome/font-awesome";
+
+/* Bootstrap */
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+$spaceamounts: (5, 10, 15, 20, 25, 30);
+
+@mixin generate-margin-bottom() {
+  @each $space in $spaceamounts {
+    .m-b-#{$space} {
+      margin-bottom: #{$space}px;
+    }
+  }
+}
+@mixin generate-margin-right() {
+  @each $space in $spaceamounts {
+    .m-r-#{$space} {
+      margin-right: #{$space}px;
+    }
+  }
+}
+@mixin generate-margin-top() {
+  @each $space in $spaceamounts {
+    .m-t-#{$space} {
+      margin-top: #{$space}px;
+    }
+  }
+}
+@mixin generate-margin-left() {
+  @each $space in $spaceamounts {
+    .m-l-#{$space} {
+      margin-left: #{$space}px;
+    }
+  }
+}
+
+@include generate-margin-bottom();
+@include generate-margin-right();
+@include generate-margin-top();
+@include generate-margin-left();
+
+/* navbar */
+.navbar {
+	border-radius: 0;
+
+	.navbar-brand {
+		padding-top: 7px;
+		color: #FFF;
+	}
+
+	.navbar-nav {
+		> li > a:focus {
+			outline: none;
+		}
+	}
+}
+
+.filter {
+	background: #F2F2F2;
+}
+
+.btn-add {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.todo-list {
+	.list-group-item {
+		.checked {
+			.todo-content {
+				text-decoration: line-through;
+			}
+		}
+		.remove-todo {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			border-radius: 0;
+			opacity: 0;
+			transition: opacity .25s ease-in-out;
+		}
+
+		&:hover {
+			.remove-todo {
+				opacity: 1;
+			}
+		}
+	}
+}
